@@ -1,0 +1,83 @@
+.make-square-xs-column(@columns; @gutter: @grid-gutter-width) {
+	.make-xs-column(@columns, @gutter);
+	padding-bottom: percentage((@columns / @grid-columns));
+}
+
+.make-square-sm-column(@columns; @gutter: @grid-gutter-width) {
+	.make-sm-column(@columns, @gutter);
+	@media (min-width: @screen-sm-min) {
+		padding-bottom: percentage((@columns / @grid-columns));
+	}
+}
+
+.make-tiny-column(@columns; @gutter: @grid-gutter-width) {
+	.make-xs-column(@columns, @gutter);
+	padding-bottom: percentage((@columns / @grid-columns));
+}
+
+
+.transform(@text) {
+	-ms-transform: @text;
+	-webkit-transform: @text;
+	transform: @text;
+}
+
+.transform-origin(@text) {
+	-ms-transform-origin: @text;
+	-webkit-transform-origin: @text;
+	transform-origin: @text;
+}
+
+.box-shadow(@h, @v, @blur, @spread, @color) {
+	-webkit-box-shadow: @h @v @blur @spread @color;
+	-moz-box-shadow:    @h @v @blur @spread @color;
+	box-shadow:         @h @v @blur @spread @color;
+}
+
+.filter(@text) {
+	-webkit-filter: @text;
+	-moz-filter: @text;
+	-o-filter: @text;
+	filter: @text;
+}
+
+.transition(@text) {
+	-webkit-transition: @text;
+	-moz-transition: @text;
+	-o-transition: @text;
+}
+
+.animation(@name, @it, @function, @duration, @delay, @fill) {
+	-moz-animation-name: @name;
+    -moz-animation-iteration-count: @it;
+    -moz-animation-timing-function: @function;	
+    -moz-animation-duration: @duration;
+    -moz-animation-delay: @delay;
+    -moz-animation-fill-mode: @fill;
+
+	-webkit-animation-name: @name;
+    -webkit-animation-iteration-count: @it;
+    -webkit-animation-timing-function: @function;	
+    -webkit-animation-duration: @duration;
+    -webkit-animation-delay: @delay;
+    -webkit-animation-fill-mode: @fill;
+
+	animation-name: @name;
+    animation-iteration-count: @it;
+    animation-timing-function: @function;	
+    animation-duration: @duration;
+    animation-delay: @delay;
+    animation-fill-mode: @fill;
+}
+
+.gradient(@type; @colors; @dir: 0deg; @prefixes: webkit, moz, ms, o; @index: length(@prefixes)) when (@index > 0) {
+    .gradient(@type; @colors; @dir; @prefixes; (@index - 1));
+ 
+    @prefix  : extract(@prefixes, @index);
+    @dir-old : 90 - (@dir);
+ 
+    background-image: ~"-@{prefix}-@{type}-gradient(@{dir-old}, @{colors})";
+  & when ( @index = length(@prefixes) ) {
+        background-image: ~"@{type}-gradient(@{dir}, @{colors})";
+    }
+}

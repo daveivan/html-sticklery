@@ -1,0 +1,47 @@
+.cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
+  font-size: 16px;
+  color: #d9ac4b;
+}
+
+@font-face {
+  font-family: "raty";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/ionicons.eot");
+  src: url("../fonts/ionicons.eot?#iefix") format("embedded-opentype");
+  src: url("../fonts/ionicons.svg#raty") format("svg");
+  src: url("../fonts/ionicons.ttf") format("truetype");
+  src: url("../fonts/ionicons.woff") format("woff");
+}
+
+.cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "ionicons";
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+}
+
+.cancel-on-png:before {
+  content: "\f36e";
+}
+
+.cancel-off-png:before {
+  content: "\f36e";
+}
+
+.star-on-png:before {
+  content: "\f2fc";
+}
+
+.star-off-png:before {
+  content: "\f3ae";
+}
+
+.star-half-png:before {
+  content: "\f3ad";
+}
